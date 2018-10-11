@@ -11,10 +11,10 @@ from decisionlib import *
 def main(task_for, mock=False):
     if task_for == "github-push":
         if CONFIG.git_ref in ["refs/heads/auto", "refs/heads/try", "refs/heads/try-taskcluster"]:
-            linux_tidy_unit()
-            android_arm32()
+            # linux_tidy_unit()
+            # android_arm32()
             android_x86()
-            windows_dev()
+            # windows_dev()
             if mock:
                 windows_release()
                 linux_wpt()
@@ -94,15 +94,16 @@ def android_arm32():
 
 
 def android_x86():
-    build_task = (
-        android_build_task("Android x86: release build")
-        .with_script("./mach build --target i686-linux-android --release")
-        .with_artifacts(
-            "/repo/target/i686-linux-android/release/servoapp.apk",
-            "/repo/target/i686-linux-android/release/servoview.aar",
-        )
-        .find_or_create("build.android_x86_release." + CONFIG.git_sha)
-    )
+    # build_task = (
+    #     android_build_task("Android x86: release build")
+    #     .with_script("./mach build --target i686-linux-android --release")
+    #     .with_artifacts(
+    #         "/repo/target/i686-linux-android/release/servoapp.apk",
+    #         "/repo/target/i686-linux-android/release/servoview.aar",
+    #     )
+    #     .find_or_create("build.android_x86_release." + CONFIG.git_sha)
+    # )
+    build_task = "HRVznverSRWJJVQOXn1qrg"
     return (
         DockerWorkerTask("Android x86: tests in emulator")
         .with_provisioner_id("proj-servo")
