@@ -114,9 +114,9 @@ def android_x86():
         .with_repo()
         .with_curl_artifact_script(build_task, "servoapp.apk", "target/i686-linux-android/release")
         .with_script("""
-            ./mach bootstrap-android --accept-all-licences --emulator-x86
-            ./mach test-android-startup --release
-            ./mach test-wpt-android --release \
+            time ./mach bootstrap-android --accept-all-licences --emulator-x86
+            time ./mach test-android-startup --release
+            time ./mach test-wpt-android --release \
                 /_mozilla/mozilla/DOMParser.html \
                 /_mozilla/mozilla/webgl/context_creation_error.html
         """)

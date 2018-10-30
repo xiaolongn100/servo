@@ -600,8 +600,8 @@ class DockerWorkerTask(Task):
         .with_early_script("""
             git init repo
             cd repo
-            git fetch --depth 1 "$GIT_URL" "$GIT_REF"
-            git reset --hard "$GIT_SHA"
+            time git fetch --depth 1 "$GIT_URL" "$GIT_REF"
+            time git reset --hard "$GIT_SHA"
         """)
 
     def with_dockerfile(self, dockerfile):
