@@ -30,4 +30,4 @@ pub use capi::*;
 #[cfg(target_os = "android")]
 mod jniapi;
 #[cfg(target_os = "android")]
-pub use jniapi::*;
+pub use crate::jniapi::*;
